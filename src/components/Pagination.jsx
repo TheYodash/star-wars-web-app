@@ -1,19 +1,42 @@
 import * as React from 'react';
-import { pageNumbers } from '../constants/apiLinks';
+import { Link } from 'react-router-dom';
+import { usePagination } from './PaginationContext';
 
-const Pagination = ({ page, setPage, category }) => {
-    const pageNumbersArray = Array.from({ length: pageNumbers[category] }, (_, i) => i + 1);
-    return (
-        <div className='pagination'>
-            {pageNumbersArray.map((num) => (
-                <button key={num} onClick={() => {setPage(num)
-                    console.log(num);
-                }} className={num === page ? 'active' : ''}>
-                    {num}
+const Pagination = ({ dataPerPage, totalData, paginate, changePage }) => {
+
+  const pageNumbers = [];
+
+    for (let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
+        pageNumbers.push(i);
+    }
+
+    const { pageNumber, handlePageChange } = usePagination();
+    
+const [currentPage, setCurrentPage] = React.useState(1);
+
+const handleClick = (number) => {
+    handlePageChange(number);
+    setCurrentPage(number);
+    paginate(number);
+    changePage(number);
+};
+
+return (
+    <nav>
+        <ul className='pagination'>
+            {pageNumbers.map(number => (
+                <button 
+                    key={number} 
+                    className={`page-item ${currentPage === number ? 'active' : ''}`} 
+                    onClick={() => handleClick(number)} >
+                    <Link to='#' className='page-link'>
+                        {number}
+                    </Link>
                 </button>
             ))}
-        </div>
-    );
-}
+        </ul>
+    </nav>
+);
+};
 
 export default Pagination;

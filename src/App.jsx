@@ -1,26 +1,29 @@
 import StarWarsCharactersList from './components/StarWarsCharctersList'
-import StarshipsList from './components/StarshipsList';
-import PlanetsList from './components/PlanetsList';
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
 import Character from './components/Character';
-import Planet from './components/Planet';
-import Starship from './components/Starship';
+import { PaginationContextProvider } from './components/PaginationContext';
+import Home from './components/Home';
+import Header from './components/Header';
 
 function App() {
   return (
     <>
     <Router>
+      <PaginationContextProvider>
       <Routes>
-        <Route path="/" element={<NavBar />} />
+        <Route path="/" element={
+          <>
+          <NavBar />
+          <Header />
+          <Home />
+          </>}
+           />
         <Route path="/characters" element={<StarWarsCharactersList />} />
-        <Route path="/planets" element={<PlanetsList />} />
-        <Route path="/starships" element={<StarshipsList />} />
         <Route path="/characters/:id" element={<Character />} />
-        <Route path="/planets/:id" element={<Planet />} />
-        <Route path="/starships/:id" element={<Starship />} />
       </Routes>
+      </PaginationContextProvider>
     </Router>
     </>
   )
