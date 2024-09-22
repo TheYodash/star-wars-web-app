@@ -5,6 +5,7 @@ import { apiLink } from '../constants/constants';
 import NavBar from './NavBar';
 import './Character.css';
 import { usePagination } from './PaginationContext';
+import Footer from './Footer';
 
 const Character = () => {
     const { pageNumber } = usePagination();
@@ -53,7 +54,7 @@ const Character = () => {
                     <button className='back-button' onClick={() => window.history.back()}>Back</button>
                  </div>
             </div>
-           
+           <Footer />
         </>
     );
 }

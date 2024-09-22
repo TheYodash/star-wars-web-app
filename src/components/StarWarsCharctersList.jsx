@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Pagination from './Pagination';
 import { apiLink } from '../constants/constants';
 import Header from './Header';
-
+import Footer from './Footer';
 
 
 const StarWarsCharactersList = () => {
@@ -46,6 +46,7 @@ const StarWarsCharactersList = () => {
                 ))}
             </ul>
             <Pagination dataPerPage={charactersPerPage} totalData={characters.length} paginate={paginate} changePage={changePage} />
+            <Footer />
         </>
     );
 }
