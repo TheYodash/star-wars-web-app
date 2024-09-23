@@ -6,23 +6,23 @@ import Character from './components/Character';
 import { PaginationContextProvider } from './components/PaginationContext';
 import Home from './components/Home';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
     <Router>
       <PaginationContextProvider>
+      <NavBar />
+      <Header />
       <Routes>
         <Route path="/" element={
-          <>
-          <NavBar />
-          <Header />
-          <Home />
-          </>}
+          <Home />}
            />
         <Route path="/characters" element={<StarWarsCharactersList />} />
         <Route path="/characters/:id" element={<Character />} />
       </Routes>
+      <Footer />
       </PaginationContextProvider>
     </Router>
     </>

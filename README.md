@@ -34,7 +34,7 @@
 
   
 ### III. Could have:
-- [ ] Add filters to refine searches (e.g., filtering characters by species).
+- [x] Add filters to refine searches (e.g., filtering characters by species).
 - [x] Include images for characters, episodes, and spaceships.
 - [ ] Add a favorite list feature allowing users to save and revisit their favorite characters or spaceships.
 

@@ -17,12 +17,9 @@ const Home = () => {
                     <Link className='show-character-link' to="/characters">Show Characters</Link>
                 </button>
                 <button >
-                    <Link className='show-character-link' to={`/characters/${randomId}`}>Surprise Me</Link>
+                    <Link className='show-character-link' to={`/characters/${randomId}`}>Trust The Force!</Link>
                 </button>
             </div>
-            <footer>
-                <Footer />
-            </footer>
         </div>
     );
 }

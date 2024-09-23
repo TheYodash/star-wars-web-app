@@ -2,11 +2,11 @@ import * as React from 'react';
 import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import { apiLink } from '../constants/constants';
-import NavBar from './NavBar';
 import './Character.css';
 import { usePagination } from './PaginationContext';
 import Footer from './Footer';
 import loadingGif from '../assets/bb8-2.gif';
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const Character = () => {
     const { pageNumber } = usePagination();
@@ -32,7 +32,6 @@ const Character = () => {
     
     return (
         <>
-            <NavBar />
             <div className='character-container'>
                 <img src={character.image} alt={character.name} className='character-image'/>
                 <div className='character-info'>
@@ -46,10 +45,9 @@ const Character = () => {
                     Math.abs(character.born) + character.died ? 
                     `${Math.abs(character.born - character.died)} Years` :
                     'Unknown'}</p>
-                    <button className='back-button' onClick={() => window.history.back()}>Back</button>
+                    <button className='back-button' onClick={() => window.history.back()}><AiOutlineArrowLeft className='back-arrow' /></button>
                  </div>
             </div>
-           <Footer />
         </>
     );
 }

@@ -17,16 +17,16 @@ const StarWarsCharactersList = () => {
 
     const [currentPage, setCurrentPage] = React.useState(1);
     const [charactersPerPage] = React.useState(10);
-    const [selectedSpecies, setSelectedSpecies] = React.useState('All Characters');
+    const [selectedSpecies, setSelectedSpecies] = React.useState('All Species');
 
     const indexOfLastCharacter = currentPage * charactersPerPage;
     const indexOfFirstCharacter = indexOfLastCharacter - charactersPerPage;
-    const filteredCharacters = selectedSpecies === 'All Characters' ? characters : characters.filter(character => character.species === selectedSpecies);
+    const filteredCharacters = selectedSpecies === 'All Species' ? characters : characters.filter(character => character.species === selectedSpecies);
     const currentCharacters = filteredCharacters.slice(indexOfFirstCharacter, indexOfLastCharacter);
 
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-    const species = ['All Characters', ...new Set(characters.map(character => character.species))].sort();
+    const species = ['All Species', ...new Set(characters.map(character => character.species))].sort();
 
     const changeSpecies = (e) => {
         setSelectedSpecies(e.target.value);
@@ -38,13 +38,11 @@ const StarWarsCharactersList = () => {
     }
 
     if (error) {
-        return <div><NavBar />Error: {error.message}</div>;
+        return <div>Error: {error.message}</div>;
     }
 
     return (
         <>
-            <NavBar />
-            <Header />
             <div className='filter-wrapper'>
             <h1 className='page-title'>Characters</h1>
             <AiFillFilter />
@@ -65,7 +63,6 @@ const StarWarsCharactersList = () => {
                 ))}
             </ul>
             <Pagination dataPerPage={charactersPerPage} totalData={filteredCharacters.length} paginate={paginate} changePage={changePage} />
-            <Footer />
         </>
     );
 }
