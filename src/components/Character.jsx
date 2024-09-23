@@ -6,6 +6,7 @@ import NavBar from './NavBar';
 import './Character.css';
 import { usePagination } from './PaginationContext';
 import Footer from './Footer';
+import loadingGif from '../assets/bb8-2.gif';
 
 const Character = () => {
     const { pageNumber } = usePagination();
@@ -19,17 +20,11 @@ const Character = () => {
      characterId = (pageNumber - 1)*10 + parseInt(id);
     }
 
-    console.log('id:', id);
-    console.log('characterId:', characterId);
-
     const url = `${apiLink}/id/${characterId}.json`;
     const { data: character, loading, error } = useFetch(url);
-    
-    console.log('Character.jsx');
-    console.log('pageNumber:', pageNumber);
 
     if (loading) {
-        return <h1>Loading...</h1>;
+        return <img className='loading-gif'src={loadingGif} alt="loading" />
     }
     if (error) {
         return <h1>Error: {error.message}</h1>;

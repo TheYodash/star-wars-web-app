@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const useFetch = (url, skip = false) => {
+const useFetch = (url) => {
     const [data, setData] = React.useState([]);
     const [loading, setLoading] = React.useState(true);
     const [error, setError] = React.useState(null);
@@ -25,12 +25,9 @@ const useFetch = (url, skip = false) => {
     React.useEffect(() => {
         changePage(page);
         fetchData(url);
-        }, [page]);
-
-        console.log(`UseFetch`);
-        console.log(`page: ${page}`);
+        }, []);
     
-    return { data, loading, error, page, changePage };
+    return { data, loading, error, changePage };
 
 }
 
