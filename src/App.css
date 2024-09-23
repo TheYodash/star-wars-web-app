@@ -12,6 +12,11 @@
   src: url(../public/StarJediHollow-A4lL.ttf);
 }
 
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  src: url(../public/Roboto-Thin.ttf);
+}
+
 body {
   margin: 0;
   padding: 0;
