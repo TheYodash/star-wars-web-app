@@ -97,13 +97,31 @@ body {
 }
 
 .page-title {
-  display: flex;
+  display: block;
+  background-color: #555;
   font-family: 'Star Jedi', sans-serif;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
   margin: 1rem 0;
   color: #FFD700;
+}
+
+.filter-wrapper {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.select {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: .5rem;
+  border-radius: .2rem;
+  cursor: pointer;
 }
 
 
