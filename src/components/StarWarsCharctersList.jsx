@@ -6,13 +6,13 @@ import Pagination from './Pagination';
 import { apiLink } from '../constants/constants';
 import Header from './Header';
 import Footer from './Footer';
-
+import loadingGif from '../assets/bb8-2.gif';
 
 const StarWarsCharactersList = () => {
 
     const url = `${apiLink}all.json`;
 
-    const { data: characters, loading, error, page, changePage } = useFetch(url);
+    const { data: characters, loading, error, changePage } = useFetch(url);
 
     const [currentPage, setCurrentPage] = React.useState(1);
     const [charactersPerPage] = React.useState(10);
@@ -21,9 +21,8 @@ const StarWarsCharactersList = () => {
     const currentCharacters = characters.slice(indexOfFirstCharacter, indexOfLastCharacter);
     const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
-
     if (loading) {
-        return <div><NavBar />Loading...</div>;
+        return <img className='loading-gif'src={loadingGif} alt="loading" />
     }
 
     if (error) {
