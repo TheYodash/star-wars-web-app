@@ -3,24 +3,14 @@ import { useParams } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 import { apiLink } from '../constants/constants';
 import './Character.css';
-import { usePagination } from './PaginationContext';
-import Footer from './Footer';
+import { usePagination } from '../Context/PaginationContext';
 import loadingGif from '../assets/bb8-2.gif';
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 const Character = () => {
-    const { pageNumber } = usePagination();
     const { id } = useParams();
 
-    let characterId = 0;
-
-    if(pageNumber === 1) {
-        characterId = parseInt(id);
-    } else {
-     characterId = (pageNumber - 1)*10 + parseInt(id);
-    }
-
-    const url = `${apiLink}/id/${characterId}.json`;
+    const url = `${apiLink}/id/${id}.json`;
     const { data: character, loading, error } = useFetch(url);
 
     if (loading) {

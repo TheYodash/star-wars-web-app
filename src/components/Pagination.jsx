@@ -1,24 +1,20 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom';
-import { usePagination } from './PaginationContext';
+import { usePagination } from '../Context/PaginationContext';
 
-const Pagination = ({ dataPerPage, totalData, paginate, changePage }) => {
+const Pagination = ({ dataPerPage, totalData, paginate }) => {
 
   const pageNumbers = [];
 
     for (let i = 1; i <= Math.ceil(totalData / dataPerPage); i++) {
         pageNumbers.push(i);
     }
-
-    const { pageNumber, handlePageChange } = usePagination();
     
 const [currentPage, setCurrentPage] = React.useState(1);
 
 const handleClick = (number) => {
-    handlePageChange(number);
     setCurrentPage(number);
     paginate(number);
-    changePage(number);
 };
 
 return (
