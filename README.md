@@ -21,9 +21,9 @@
 ### I. Must have:
 - [x] The app needs to have multiple pages and use client-side routing
 - [x] The app should make use of the Context API or use custom hooks;
-- [x] Build the navigation bar to link to "Characters," "Episodes," and "Spaceships."
+- [x] Build the navigation bar to link to Characters.
 - [x] Fetch data from the Star Wars API for each section.
-- [x] Build a page to show information about characters, planets, and starships
+- [x] Build a page to show information about characters.
 - [x] Display the data fetched in a clean and organized format.
 - [x] Implement error handling for API requests.
 - [x] Add pagination for characters if the data exceeds the page limit.
@@ -31,12 +31,11 @@
 
 ### II. Should have:
 - [ ] Implement search functionality to filter characters.
-
+- [x] Add filters to refine searches (e.g., filtering characters by species).
   
 ### III. Could have:
-- [x] Add filters to refine searches (e.g., filtering characters by species).
-- [x] Include images for characters, episodes, and spaceships.
-- [ ] Add a favorite list feature allowing users to save and revisit their favorite characters or spaceships.
+- [x] Include images for characters.
+- [ ] Add a favorite list feature allowing users to save and revisit their favorite characters.
 
 ## Styling Guide
 
@@ -44,7 +43,7 @@ This application will have:
 
 - Homepage that contains information about the application
 
-- Card view to show elements of characters, starships and planets each element will lead to a page that contains information.
+- Card view to show elements of characters each element will lead to a page that contains information.
 
 ### 1. **Color Scheme**
 - Star Wars-themed color palette:
